@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH='/Users/karanpatel/Desktop/UW506/social-network-theme-master/envNode/lib/node_modules'
+export NPM_CONFIG_PREFIX='/Users/karanpatel/Desktop/UW506/social-network-theme-master/envNode'
+export npm_config_prefix='/Users/karanpatel/Desktop/UW506/social-network-theme-master/envNode'
+exec 'envNode/bin/node' "$@"
