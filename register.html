@@ -44,48 +44,57 @@
                 <input type="email" name="email" placeholder="Email" >
             
             </div>
+
+            <div class="form-group">
+                <small class="form-text">
+                    Please enter your username
+                </small>
+                <input type="text" name="username" placeholder="Username">
+
+            </div>
+            
             
             <div class="form-group">
                 <small class="form-text">
                     Please enter your First Name
                 </small>
-                <input type="text" name="firstN" placeholder="First Name">
+                <input type="text" name="firstname" placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <small class="form-text">
                     Please enter your Last Name
                 </small>
-                <input type="text" name="lastN" placeholder="Last Name">
+                <input type="text" name="lastname" placeholder="Last Name">
             </div>
 
             <div class="form-group">
                 <small class="form-text">Please enter your gender</small>
-                <input type="radio" name="gender" value="genderM" required>&nbsp; Male</textarea><br>
-                <input type="radio" name="gender" value="genderF">&nbsp; Female</textarea><br>
-                <input type="radio" name="gender" value="genderO">&nbsp; Other</textarea>
+                <input type="radio" name="gender" value="Male" required>&nbsp; Male</textarea><br>
+                <input type="radio" name="gender" value="Female">&nbsp; Female</textarea><br>
+                <input type="radio" name="gender" value="Other">&nbsp; Other</textarea>
             </div>
             
             <div class="form-group">
                 <small class="form-text">When were you born</small>
-                <input type="date" name="dob" required></textarea>
+                <input type="date" name="bday" required></textarea>
             </div>
             
             
             <div class="form-group">
                 <small class="form-text">Your phone number</small>
-                <input type="tel" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>&nbsp; Format:
+                <input type="tel" name="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>&nbsp; Format:
                     123-456-7890</small>
             </div>
 
             
             <div class="form-group">
                 <small class="form-text">Enter a password</small>
-                <input type="password" placeholder="Password" minlength="6" value="" required>
+                <input type="password" placeholder="Password" minlength="6" name="password" required>
             </div>
             <div class="form-group">
                 <small class="form-text">Confirm password</small>
-                <input type="password" placeholder="Confirm password" minlength="6" value="" required>
+                <input type="password" placeholder="Confirm password" minlength="6" required>
             </div>
             <input type="submit" class="btn btn-primary" value="Register">
         </form>
