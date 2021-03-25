@@ -33,21 +33,59 @@
         <p class="lead">
             <i class="fas fa-user"></i> Create your account
         </p>
-        <form action="dashboard.html" class="form">
+
+        <!--action="dashboard.html"-->
+        <form action="http://127.0.0.1:6969/api/user/" class="form" id="regForm" method="POST">
+           
             <div class="form-group">
-                <input type="text" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email" value="">
                 <small class="form-text">
-                    This site uses gravatar, so if you want a profile image, use a gravatar email
+                    Please enter your email address
                 </small>
+                <input type="email" name="email" placeholder="Email" >
+            
+            </div>
+            
+            <div class="form-group">
+                <small class="form-text">
+                    Please enter your First Name
+                </small>
+                <input type="text" name="firstN" placeholder="First Name">
+            </div>
+
+            <div class="form-group">
+                <small class="form-text">
+                    Please enter your Last Name
+                </small>
+                <input type="text" name="lastN" placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <small class="form-text">Please enter your gender</small>
+                <input type="radio" name="gender" value="genderM" required>&nbsp; Male</textarea><br>
+                <input type="radio" name="gender" value="genderF">&nbsp; Female</textarea><br>
+                <input type="radio" name="gender" value="genderO">&nbsp; Other</textarea>
+            </div>
+            
+            <div class="form-group">
+                <small class="form-text">When were you born</small>
+                <input type="date" name="dob" required></textarea>
+            </div>
+            
+            
+            <div class="form-group">
+                <small class="form-text">Your phone number</small>
+                <input type="tel" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>&nbsp; Format:
+                    123-456-7890</small>
+            </div>
+
+            
+            <div class="form-group">
+                <small class="form-text">Enter a password</small>
+                <input type="password" placeholder="Password" minlength="6" value="" required>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" minlength="6" value="">
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Confirm password" minlength="6" value="">
+                <small class="form-text">Confirm password</small>
+                <input type="password" placeholder="Confirm password" minlength="6" value="" required>
             </div>
             <input type="submit" class="btn btn-primary" value="Register">
         </form>
@@ -56,7 +94,67 @@
         </p>
     </section>
 
-    <script src="bundle.js" async></script>
+    <script>
+
+        /**
+        * Helper function for POSTing data as JSON with fetch.
+        *
+        * @param {Object} options
+        * @param {string} options.url - URL to POST data to
+        * @param {FormData} options.formData - `FormData` instance
+        * @return {Object} - Response body from URL that was POSTed to
+        */
+
+        async function postFormDataAsJson({ url, formData }) {
+            const plainFormData = Object.fromEntries(formData.entries());
+            const formDataJsonString = JSON.stringify(plainFormData);
+
+            const fetchOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: formDataJsonString,
+            };
+
+            const response = await fetch(url, fetchOptions);
+
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                throw new Error(errorMessage);
+            }
+
+            return response.json();
+        }
+
+        /**
+            * Event handler for a form submit event.
+            *
+            * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event
+            *
+            * @param {SubmitEvent} event
+            */
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = event.currentTarget;
+            const url = form.action;
+
+            try {
+                const formData = new FormData(form);
+                const responseData = await postFormDataAsJson({ url, formData });
+
+                console.log({ responseData });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        const exampleForm = document.getElementById("regForm");
+        exampleForm.addEventListener("submit", handleFormSubmit);
+        
+    </script>
 </body>
 
 </html>

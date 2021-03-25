@@ -51,14 +51,13 @@ Enter availability
 -->
 <body>
     <nav class="navbar bg-dark">
-    <h1>UW Study Circle</h1>
+        <h1>UW Study Circle</h1>
         <ul>
             <li>
                 <a href="dashboard.html">Dashboard</a>
             </li>
     
-            <li><li>
-            </li>
+            <li>
                 <a href="profiles.html">Group Screen</a>
             </li>
     
@@ -88,23 +87,47 @@ Enter availability
         </p>
         <form class="form">     
             
-            <div class="field_wrapper">
-                <div>
-                    <small class="form-text">Select your current coursework</small>
-                    <input type="text" name="field_name[]" value=""/>
-                    <a href="javascript:void(0);" class="add_button" title="Add field"><h1>+</h1></a>
-                </div>
+            <div class="form-group">
+                <small class="form-text">Email address</small>
+                <input type ="text" placeholder="xyz@gmail.com" name="email" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <small class="form-text">Pick a good username</small>
+                <input type ="text" placeholder="Username" name="username" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <small class="form-text">Your First Name</small>
+                <input type ="text" placeholder="First Name" name="firstN" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <small class="form-text">Your Last Name</small>
+                <input type ="text" placeholder="Last Name" name="lastN" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <small class="form-text">Gender</small>
+                <input type="radio" name="gender" value="genderM" required>&nbsp; Male</textarea><br>
+                <input type="radio" name="gender" value="genderF">&nbsp; Female</textarea><br>
+                <input type="radio" name="gender" value="genderO">&nbsp; Other</textarea>
+            </div>
+            
+            <div class="form-group">
+                <small class="form-text">When were you born</small>
+                <input type ="date" name="dob" required></textarea>
             </div>
 
 
             <div class="form-group">
-                <small class="form-text">Tell us a bit about yourself</small>
-                <textarea placeholder="A short bio of yourself" name="bio"></textarea>
+                <small class="form-text">Your phone number</small>
+                <input type="tel" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>&nbsp; Format: 123-456-7890</small>
             </div>
 
             <div class="form-group">
                 <small class="form-text">Tell us what's your education status</small> 
-                <select name="status">
+                <select name="status" required>
                     <option value="0">* Select level of education</option>
                     <option value="highschool">High school</option>
                     <option value="UnderFreshman">Undergraduate - Freshman</option>
@@ -119,7 +142,7 @@ Enter availability
 
             <div class="field_wrapper">
                 <div>
-                    <small class="form-text">Tell us some subjects you're interested in</small>
+                    <small class="form-text">Tell us some courses you're taking</small>
                     <input type="text" name="field_name[]" value="" />
                     <a href="javascript:void(0);" class="add_button" title="Add field">
                         <h1>+</h1>
@@ -135,7 +158,10 @@ Enter availability
             <a class="btn btn-light my-1" href="dashboard.html">Go Back</a>
         </form>
     </section>
-    <script src="bundle.js" async></script>
+
+
+
+
 </body>
 
 </html>
